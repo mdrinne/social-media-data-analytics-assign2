@@ -54,7 +54,7 @@ def get_stream(stream):
 
     tweets = []
 
-    tweet_iter = stream.statuses.sample(language='en')
+    tweet_iter = stream.statuses.sample()
 
     for tweet in tweet_iter:
         tweets.append(tweet)

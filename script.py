@@ -16,6 +16,7 @@ conn.commit()
 
 
 for tweet in tweets:
+    if 'entities' in tweet:
         hashtags = tweet['entities']['hashtags']
         for hashtag in hashtags:
             # print "%s" % (hashtag['text'])
@@ -30,7 +31,7 @@ fp = open('assign2-report.txt', 'w')
 print('{}\t{}'.format(dt,future))
 fp.write('{}\t{}\n'.format(dt,future))
 for tag in top10:
-    print(tag[0] + '\t{}'.format(tag[1]))
-    fp.write(tag[0] + '\t{}\n'.format(tag[1]))
+    print(tag[0].encode('utf-8') + '\t{}'.format(tag[1]))
+    fp.write(tag[0].encode('utf-8') + '\t{}\n'.format(tag[1]))
 
 conn.close()
